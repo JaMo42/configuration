@@ -1,0 +1,13 @@
+:include /etc/joe/joerc
+*
+
+-tab 4
+-istep 4
+-spaces
+-assume_256color
+-joexterm
+-mouse
+-autoindent
+-force
+-highlight
+
