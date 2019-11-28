@@ -1,0 +1,8 @@
+! Colors
+#include "colors/pro"
+
+! Programs
+#include "urxvt"
+
+Xft*dpi: 150
+

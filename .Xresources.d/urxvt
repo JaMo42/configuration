@@ -1,0 +1,10 @@
+URxvt*scrollTtyKeypress: true
+URxvt*font: xft:SF Mono:size=14
+URxvt*internalBorder: 16
+! Composite transparency
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0000/c800
+! Fake transparency
+! URxvt*transparent: true
+! URxvt*shading: 30
+URxvt*scrollBar: false
