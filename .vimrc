@@ -20,7 +20,7 @@ call plug#end()
     if !has('gui_running')
         set t_Co=256
     endif
-    set expandtab softtabstop=4 shiftwidth=4
+    set expandtab softtabstop=2 shiftwidth=2
     set ttyfast
     set mouse=a
     set autoindent
