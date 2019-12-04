@@ -37,13 +37,13 @@ call plug#end()
 " Appearance
   set nowrap
   syntax on
-  colors desert
+  colors default
   set nu relativenumber
   set laststatus=2 " Ensures lightline is working
-  set background=dark
+  "set background=dark
   highlight Comment ctermfg=DarkGreen
   highlight LineNr ctermfg=DarkGrey
-  set listchars=tab:\ \ ,nbsp:_,trail:·,extends:<,precedes:>
+  set listchars=tab:\ \ ,nbsp:_,trail:.,extends:<,precedes:>
   set list
   set hlsearch
 
@@ -70,6 +70,9 @@ call plug#end()
     let g:lightline = {
       \ 'colorscheme': 'jellybeans',
       \ }
+
+" Filetype overrides
+  autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2
 
 " Vim-only
   if !has('nvim')
