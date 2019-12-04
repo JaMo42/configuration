@@ -15,7 +15,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'bagrat/vim-buffet'
 call plug#end()
 
-" Functions
 " Behavior
   set nocompatible
   if !has('gui_running')
@@ -38,9 +37,9 @@ call plug#end()
 " Appearance
   set nowrap
   syntax on
+  colors desert
   set nu relativenumber
   set laststatus=2 " Ensures lightline is working
-  colors default
   set background=dark
   highlight Comment ctermfg=DarkGreen
   highlight LineNr ctermfg=DarkGrey
