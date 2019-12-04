@@ -6,14 +6,16 @@
 " (_)\_/  |_||_| |_| |_||_|   \___|
 
 " Plugins
-call plug#begin('~/.vim/plugged')
-  " Plugins
-  Plug 'airblade/vim-gitgutter'
-  Plug 'junegunn/goyo.vim'
-  Plug 'junegunn/limelight.vim'
-  Plug 'itchyny/lightline.vim'
-  Plug 'bagrat/vim-buffet'
-call plug#end()
+if !empty(glob("~/.vim/autoload/plug.vim"))
+  call plug#begin('~/.vim/plugged')
+    " Plugins
+    Plug 'airblade/vim-gitgutter'
+    Plug 'junegunn/goyo.vim'
+    Plug 'junegunn/limelight.vim'
+    Plug 'itchyny/lightline.vim'
+    Plug 'bagrat/vim-buffet'
+  call plug#end()
+endif
 
 " Behavior
   set nocompatible
