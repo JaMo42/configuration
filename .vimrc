@@ -78,12 +78,18 @@ endif
 " Filetype overrides
   autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2
 
-" Vim-only
-  if !has('nvim')
-    set ttymouse=xterm2
+" gVim settings
+  if has("gui_running")
+    " Set colors and font
+    set t_Co=256
+    colorscheme torte
+    set background=dark
+    highlight Comment guifg=DarkGreen
+    highlight LineNr guifg=DarkGrey
+    set guifont=Consolas:h16
+    " Disable UI elements
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
   endif
-
-" NVim-only
-  if has('nvim')
-  endif
-
