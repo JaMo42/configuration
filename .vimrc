@@ -57,6 +57,8 @@ endif
     nnoremap <C-Right> <C-w><Right>
     nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
   " Insert mode
+    inoremap <C-Up> <C-o>db
+    inoremap <C-Down> <C-o>dw
 
 " Plugin settings
   " Goyo
