@@ -35,6 +35,8 @@ endif
   set noswapfile
   set undofile
   set undodir=~/.vim/undo
+  set splitbelow
+  set splitright
 
 " Appearance
   set nowrap
