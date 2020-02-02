@@ -1,0 +1,41 @@
+# Modified from here: https://ywwg.com/wordpress/archives/1145
+# Display running command instead of triangle
+# add `source ~/.termtitlerc` to .bashrc
+
+# Custom title-setting code that adds a triangle play-arrow
+# if the terminal is not waiting on the prompt
+case "$TERM" in
+xterm*|rxvt*|st*)
+    # This tells bash: before showing the prompt, run this
+    PROMPT_COMMAND='echo -ne "\033]0;${THIS_TERMINAL_TITLE}\007"'
+
+    # Edit the title if a command is running:
+    # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
+    show_command_in_title_bar()
+    {
+        case "$BASH_COMMAND" in
+            *\033]0*)
+                # The command is trying to set the title bar as well;
+                # this is most likely the execution of $PROMPT_COMMAND.
+                # In any case nested escapes confuse the terminal, so don't
+                # output them.
+                ;;
+            *)
+                echo -ne "\033]0;$(history 1 | cut -c8-)\007"
+                ;;
+        esac
+    }
+    # The DEBUG signal simply announces the last-run command
+    trap show_command_in_title_bar DEBUG
+    ;;
+*)
+    ;;
+esac
+
+# Now we can set the title of the terminal with terminal_title my title
+function terminal_title ()
+{
+    export THIS_TERMINAL_TITLE="$@"
+}
+# Here's a good default
+export THIS_TERMINAL_TITLE="$USER@$HOSTNAME"
