@@ -14,17 +14,21 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
     Plug 'junegunn/limelight.vim'
     Plug 'itchyny/lightline.vim'
     Plug 'bagrat/vim-buffet'
+    " Color schemes
+    Plug 'nanotech/jellybeans.vim'
+    Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
   call plug#end()
 endif
 
 " Behavior
   set nocompatible
   if !has('gui_running')
+    "set termguicolors
     set t_Co=256
   endif
   set tabstop=2
   set softtabstop=2
-	set expandtab
+  set expandtab
   set shiftwidth=2
   set ttyfast
   set mouse=a
@@ -41,15 +45,20 @@ endif
 " Appearance
   set nowrap
   syntax on
-  colors default
   set nu relativenumber
   set laststatus=2 " Ensures lightline is working
-  "set background=dark
-  highlight Comment ctermfg=DarkGreen
-  highlight LineNr ctermfg=DarkGrey
   set listchars=tab:\ \ ,nbsp:_,trail:.,extends:<,precedes:>
   set list
   set hlsearch
+  " Colors
+  set background=dark
+  "colorscheme default
+  colorscheme jellybeans
+  "highlight Comment ctermfg=DarkGreen
+  highlight LineNr ctermfg=DarkGrey ctermbg=NONE
+  highlight Normal ctermbg=NONE
+  highlight TabLineFill ctermbg=NONE
+  highlight EndOfBuffer ctermbg=NONE
 
 " Key bindings
   " Normal mode
@@ -61,6 +70,17 @@ endif
   " Insert mode
     inoremap <C-Up> <C-o>db
     inoremap <C-Down> <C-o>dw
+  " st settings
+    if &term =~ "st"
+      inoremap <ESC>[1;5D <C-Left>
+      inoremap <ESC>[1;5C <C-Right>
+      inoremap <ESC>[1;5A <C-o>db
+      inoremap <ESC>[1;5B <C-o>dw
+      nnoremap <ESC>[1;5D <C-w><Left>
+      nnoremap <ESC>[1;5C <C-w><Right>
+      nnoremap <ESC>[1;5A <C-w><Up>
+      nnoremap <ESC>[1;5B <C-w><Down>
+    endif
 
 " Plugin settings
   " Goyo
@@ -84,10 +104,13 @@ endif
   if has("gui_running")
     " Set colors and font
     set t_Co=256
-    colorscheme torte
+    "colorscheme torte
+    "set background=dark
+    "highlight Comment guifg=DarkGreen
+    "highlight LineNr guifg=DarkGrey
     set background=dark
-    highlight Comment guifg=DarkGreen
-    highlight LineNr guifg=DarkGrey
+    let g:gruvbox_material_background="hard"
+    colorscheme gruvbox-material
     set guifont=Consolas:h16
     " Disable UI elements
     set guioptions-=m  "remove menu bar
