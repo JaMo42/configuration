@@ -2,14 +2,21 @@
 # wm independent hotkeys
 #
 
+# Launch terminal
 super + Return
   st
 
+# Launch application runner
 super + @space
   rofi -show run
 
+# Reload config
 super + Escape
   pkill -USR1 -x sxhkd
+
+# Lock screen
+super + alt + x
+  xscreensaver-command -lock
 
 #
 # bspwm hotkeys
