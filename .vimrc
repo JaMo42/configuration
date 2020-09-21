@@ -14,9 +14,11 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
     Plug 'junegunn/limelight.vim'
     Plug 'itchyny/lightline.vim'
     Plug 'bagrat/vim-buffet'
+    " Plug 'jaxbot/semantic-highlight.vim'
+    Plug 'vim-python/python-syntax'
     " Color schemes
-    Plug 'nanotech/jellybeans.vim'
-    Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
+    " Plug 'ludokng/vim-odyssey'
+    Plug 'JaMo42/alabaster.vim'
   call plug#end()
 endif
 
@@ -41,6 +43,12 @@ endif
   set undodir=~/.vim/undo
   set splitbelow
   set splitright
+  filetype off
+  " Open file at position left off
+  if has("autocmd")
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+      \| exe "normal! g`\"" | endif
+  endif
 
 " Appearance
   set nowrap
@@ -51,36 +59,47 @@ endif
   set list
   set hlsearch
   " Colors
-  set background=dark
-  "colorscheme default
-  colorscheme jellybeans
+  "colorscheme peachpuff
+  "set background=light
   "highlight Comment ctermfg=DarkGreen
-  highlight LineNr ctermfg=DarkGrey ctermbg=NONE
-  highlight Normal ctermbg=NONE
-  highlight TabLineFill ctermbg=NONE
-  highlight EndOfBuffer ctermbg=NONE
+  colors alabaster
 
 " Key bindings
-  " Normal mode
+  nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+  if &term =~ "st"
+  " st settings
+    inoremap <ESC>[1;5D <C-Left>
+    inoremap <ESC>[1;5C <C-Right>
+    inoremap <ESC>[1;5A <C-o>db
+    inoremap <ESC>[1;5B <C-o>dw
+    nnoremap <ESC>[1;5D <C-w><Left>
+    nnoremap <ESC>[1;5C <C-w><Right>
+    nnoremap <ESC>[1;5A <C-w><Up>
+    nnoremap <ESC>[1;5B <C-w><Down>
+  elseif &term =~ "rxvt"
+  " urxvt settings
+    inoremap Od <C-Left>
+    inoremap Oc <C-Right>
+    inoremap Oa <C-o>db
+    inoremap Ob <C-o>dw
+    nnoremap Od <C-w><Left>
+    nnoremap Oc <C-w><Right>
+    nnoremap Oa <C-w><Up>
+    nnoremap Ob <C-w><Down>
+  else
+  " default settings
     nnoremap <C-Up> <C-w><Up>
     nnoremap <C-Down> <C-w><Down>
     nnoremap <C-Left> <C-w><Left>
     nnoremap <C-Right> <C-w><Right>
-    nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-  " Insert mode
     inoremap <C-Up> <C-o>db
     inoremap <C-Down> <C-o>dw
-  " st settings
-    if &term =~ "st"
-      inoremap <ESC>[1;5D <C-Left>
-      inoremap <ESC>[1;5C <C-Right>
-      inoremap <ESC>[1;5A <C-o>db
-      inoremap <ESC>[1;5B <C-o>dw
-      nnoremap <ESC>[1;5D <C-w><Left>
-      nnoremap <ESC>[1;5C <C-w><Right>
-      nnoremap <ESC>[1;5A <C-w><Up>
-      nnoremap <ESC>[1;5B <C-w><Down>
-    endif
+  endif
+
+  "nnoremap <Leader>s :SemanticHighlightToggle<cr>
+    map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Plugin settings
   " Goyo
@@ -96,25 +115,15 @@ endif
     let g:lightline = {
       \ 'colorscheme': 'jellybeans',
       \ }
+  " python-syntax
+    let g:python_highlight_all = 1
 
 " Filetype overrides
   autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2
+  "autocmd FileType python hi Comment ctermfg=Green
 
-" gVim settings
-  if has("gui_running")
-    " Set colors and font
-    set t_Co=256
-    "colorscheme torte
-    "set background=dark
-    "highlight Comment guifg=DarkGreen
-    "highlight LineNr guifg=DarkGrey
-    set background=dark
-    let g:gruvbox_material_background="hard"
-    colorscheme gruvbox-material
-    set guifont=Consolas:h16
-    " Disable UI elements
-    set guioptions-=m  "remove menu bar
-    set guioptions-=T  "remove toolbar
-    set guioptions-=r  "remove right-hand scroll bar
-    set guioptions-=L  "remove left-hand scroll bar
-  endif
+nnoremap Z :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+
