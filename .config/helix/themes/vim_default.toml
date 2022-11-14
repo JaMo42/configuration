@@ -1,0 +1,64 @@
+# Editor
+
+'comment' = { fg = "my-light-green", modifiers = ["bold"] }
+'tag' = { fg = "gray", modifiers = ["bold"] }
+
+'keyword' = "yellow"
+'keyword.storage' = "green"
+
+'keyword.directive' = "magenta"
+'function.special' = "magenta"
+
+'constant' = "red"
+'string' = "red"
+'variable.builtin' = "red"
+
+'type' = "green"
+
+'function' = "cyan"
+
+'namespace' = "magenta"
+
+'punctuation' = "medium-gray"
+'operator' = "medium-gray"
+'label' = "medium-gray"
+
+# Ui
+
+'ui.background' = { bg = "bg0" }
+'text' = "fg0"
+
+'ui.cursor' = { fg = "black", bg = "white" }
+
+'ui.selection' = { fg = "black", bg = "gray" }
+
+'ui.linenr' = "dark-gray"
+'ui.linenr.selected' = { fg = "gray", modifiers = ["bold"] }
+
+'ui.statusline' = { bg = "dark-gray", fg = "light-gray" }
+'ui.statusline.normal' = { bg = "#5FAFFF", fg = "black" }
+'ui.statusline.insert' = { bg = "#5FFF5F", fg = "black" }
+'ui.statusline.select' = { bg = "#FFAF5F", fg = "black" }
+
+'ui.window' = { bg = "dark-gray", fg = "light-gray" }
+
+'ui.virtual' = "darker-gray"
+
+'ui.popup' = { bg = "darker-gray", fg = "fg0" }
+
+'warning' = "yellow"
+'diagnostic.warning' = { fg = "yellow", modifiers = ["underlined"] }
+'error' = "red"
+'diagnostic.error' = { fg = "red", modifiers = ["underlined"] }
+'info' = "cyan"
+'diagnostic.info' = { fg = "cyan", modifiers = ["underlined"] }
+'hint' = "light-green"
+'diagnostic.hint' = { fg = "light-green", modifiers = ["underlined"] }
+
+# Adjust based on terminal color palette
+[palette]
+my-light-green = "#00D700"
+medium-gray = "#A8A8A8"
+dark-gray = "#585858"
+darker-gray = "#444444"
+

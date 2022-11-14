@@ -1,0 +1,29 @@
+theme = "vim_default"
+
+[editor]
+true-color = true
+color-modes = true
+
+[editor.indent-guides]
+render = true
+character = "╎"
+
+[editor.whitespace.render]
+tab = "all"
+
+[editor.whitespace.characters]
+tab = "→"
+
+[keys.normal]
+C-c = "no_op"
+C-home = "goto_file_start"
+C-end = "goto_last_line"
+
+[keys.insert]
+C-c = "normal_mode"
+C-home = "goto_file_start"
+C-end = "goto_last_line"
+
+[keys.select]
+C-c = "normal_mode"
+

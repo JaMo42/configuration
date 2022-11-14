@@ -1,0 +1,79 @@
+# Editor
+
+'comment' = "#CC3333"
+# `@param` etc. in doc comments
+'tag' = { fg = "#8A8A8A", modifiers = ["bold"] }
+
+'keyword' = "#EEEEEE"
+
+'keyword.directive' = "#5F5FAF"
+'function.sepcial' = "#5F5FAF"
+
+'constant' = "#AF5FFF"
+'constant.builtin' = "#AF4FFF"
+'constant.character' = "#00AFFF"
+'string' = "#00AFFF"
+'constant.numeric' = "#AF5FFF"
+'variable.builtin' = "#AF5FFF"
+
+'type' = "#EEEEEE"
+
+'function' = { modifiers = ["bold"] }
+'function.macro' = "#5F5FAF"
+'constructor' = "#AF5FFF"
+
+'namespace' = "#5F5FAF"
+
+'punctuation.delimiter' = "#00AFAF"
+'punctuation.bracket' = "#00AF00"
+'operator' = "#66FF33"
+# This is used for lifetime parameters in rust
+'label' = { fg = "#00AFAF", modifiers = ["bold"] }
+'punctuation.special' = "#FFD7AF"
+
+'markup' = "#EEEEEE"
+
+# Diff
+
+# TODO: how do you even get these in the editor?
+'diff.plus' = "light-green"
+'diff.minus' = "light-red"
+'diff.delta' = "light-blue"
+'diff.delta.moved' = "light-yellow"
+
+# Ui
+
+'ui.background' = { bg = "black" }
+'ui.text' = { fg = "#A8A8A8" }
+
+'ui.cursor' = { bg = "#EEEEEE", fg = "black" }
+
+'ui.selection' = { bg = "bray", fg = "black" }
+'ui.selection.primary' = { bg = "gray", fg = "black" }
+
+'ui.linenr' = "#3A3A3A"
+'ui.linenr.selected' = { fg = "#606060", modifiers = ["bold"] }
+
+'ui.statusline' = { bg = "light-gray", fg = "black", modifiers = ["bold"] }
+'ui.statusline.normal' = { bg = "#5FAFFF" }
+'ui.statusline.insert' = { bg = "#5FFF5F" }
+'ui.statusline.select' = { bg = "#FFAF5F" }
+
+'ui.window' = { bg = "light-gray", fg = "black" }
+
+'ui.virtual' = "#3A3A3A"
+
+'ui.popup' = { bg = "#1C1C1C", fg = "#A8A8A8" }
+
+'warning' = "yellow"
+'diagnostic.warning' = { fg = "yellow", modifiers = ["underlined"] }
+'error' = "red"
+'diagnostic.error' = { fg = "red", modifiers = ["underlined"] }
+'info' = "cyan"
+'diagnostic.info' = { fg = "cyan", modifiers = ["underlined"] }
+'hint' = "light-green"
+'diagnostic.hint' = { fg = "light-green", modifiers = ["underlined"] }
+
+# To do
+
+'attribute' = "light-yellow"
