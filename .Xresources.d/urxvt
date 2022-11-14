@@ -1,10 +1,17 @@
-URxvt*scrollTtyKeypress: true
-URxvt*font: xft:SF Mono:size=14
-URxvt*internalBorder: 16
+urxvt*scrollTtyKeypress: true
+urxvt*font: xft:SF Mono:size=16:style=Medium,xft:IBM Plex Sans KR
+urxvt*internalBorder: 16
+urxvt*scrollBar: false
+
 ! Composite transparency
-URxvt*depth: 32
-URxvt*background: rgba:0000/0000/0000/c800
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0000/c800
 ! Fake transparency
-! URxvt*transparent: true
-! URxvt*shading: 30
-URxvt*scrollBar: false
+! urxvt*transparent: true
+! urxvt*shading: 30
+
+urxvt.perl-ext-common: default,font-size
+
+urxvt.keysym.C-Up:     font-size:increase
+urxvt.keysym.C-Down:   font-size:decrease
+

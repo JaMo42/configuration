@@ -89,6 +89,7 @@ element normal {
 
 element selected {
 	background-color: @base0B;
+  text-color: @base03 !important;
 }
 
 element alternate {

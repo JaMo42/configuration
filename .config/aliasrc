@@ -4,35 +4,67 @@ alias grep="grep --color=auto"
 
 # Aliases
 alias e="$EDITOR"
-alias l="ls"
-alias lst="ls -1"
-alias la="ls -lA"
-alias ll="ls -l"
-alias cp="cp -rv"
+alias l="lst"
+alias la="lst -la"
+alias ll="lst -l"
+alias L="ls -og"
+alias cp="cp -Rv"
 alias mv="mv -v"
 alias mkdir="mkdir -p"
 alias h="builtin cd $HOME"
-alias py="python"
-alias xrdbm="xrdb -merge -I$HOME/.Xresources.d/ $HOME/.Xresources"
+alias xrdbm="xrdb -merge $HOME/.Xresources"
 alias dtree="tree -d"
 alias ccat="pygmentize -g"
 alias su-get="cp $HOME/src/smallunit/smallunit.h ."
-alias vi="vim"
+alias more="less"
+alias vi="vim";
+alias gvi="nvim-qt"
+alias hx="helix"
+alias cd..="cd .."
+alias clearl="clear && ls"
+alias ED="export DISPLAY=jakob-pc:10.0"
+alias nvim="nvim && printf '\e[ q'"
+alias less="less -R"
+
+alias cxx="g++ -std=c++20 -Wall -Wextra"
+alias py="ipython"
+alias pystyle="pycodestyle --ignore=E111,E211,E114"
+alias c="cargo"
+alias xm="xmake"
+
+# Valgrind
+alias vg="valgrind"
+alias vgto="valgrind --track-origins=yes"
 
 # Tmux
 alias tls="tmux list-sessions"
 alias ta="tmux attach-session -t "
+# Create a new session with either the given parameter or the basename of the
+# current diectory as name.
+ts () { tmux new -s ${1:-${PWD##*/}}; }
+alias tdc="tmux detach-client"
+if [[ -n "$TMUX" ]]; then
+  alias clear="clear && tmux clear-history"
+fi
 
 # Git
 alias gs="git status"
 alias gd="git diff"
 alias git-untracked="git ls-files --others --exclude-standard"
+alias gl="git log --abbrev-commit --pretty=oneline -n 10"
+alias gap="git add --patch"
+
+# arduino-cli
+alias ac="arduino-cli"
+
+# Other
+alias set-urgent="wmctrl -r :SELECT: -b add,demands_attention"
 
 # Functions
 
-cd () { builtin cd "${1:-$HOME}" && ls; }
+cd () { builtin cd "${1:-$HOME}" && lst; }
 
-mkcd () { mkdir "$1" && cd "$1"; }
+mkcd () { mkdir -p "$1" && cd "$1"; }
 
 ex ()
 {
@@ -40,8 +72,9 @@ ex ()
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
       *.tar.gz)    tar xzf $1   ;;
+      *.tar.xz)    tar xf $1    ;;
       *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
+      *.rar)       unrar x $1   ;;
       *.gz)        gunzip $1    ;;
       *.tar)       tar xf $1    ;;
       *.tbz2)      tar xjf $1   ;;
@@ -56,5 +89,9 @@ ex ()
   fi
 }
 
-bak() { cp -v "$1" "$1.bak"; }
+bak() { cp -v "$1" "$1~"; }
+
+launch() { "$*" >/dev/null 2>&1 & disown; }
+
+kill_vscode_server() { ps aux | grep .vscode-server | awk '{print $2}' | xargs kill -9; }
 

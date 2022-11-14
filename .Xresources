@@ -1,8 +1,11 @@
 ! Colors
-#include "colors/pro"
+#include ".Xresources.d/colors/terminal.app"
+*.background: #1C1C1C
 
 ! Programs
-#include "urxvt"
+#include ".Xresources.d/urxvt"
 
-Xft*dpi: 150
+! General
+!Xft*dpi: 160
+Xft*dpi: 92
 

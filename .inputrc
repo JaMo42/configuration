@@ -1,0 +1,6 @@
+TAB: menu-complete
+set show-all-if-ambiguous on
+"[1~": beginning-of-line
+"[4~": end-of-line
+"^[[H": beginning-of-line
+"^[Ow": end-of-line
