@@ -33,13 +33,13 @@ o.showcmd = true
 
 -- indentation
 o.expandtab = true
-o.softtabstop = 2
-o.shiftwidth = 2
+o.softtabstop = 4
+o.shiftwidth = 4
 o.autoindent = true
 o.smartindent = true
 bo.expandtab = true
-bo.softtabstop = 2
-bo.shiftwidth = 2
+bo.softtabstop = 4
+bo.shiftwidth = 4
 bo.autoindent = true
 bo.smartindent = true
 

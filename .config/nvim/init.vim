@@ -41,8 +41,8 @@ endif
 " set iskeyword-=_
 
 " Force 2 space indentation for python, rust
-autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType rust setlocal expandtab shiftwidth=2 softtabstop=2
+"autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2
+"autocmd FileType rust setlocal expandtab shiftwidth=2 softtabstop=2
 " Restore cursor shape on exit
 autocmd VimLeave * call system ('printf "\e[ q"')
 
@@ -65,7 +65,10 @@ if !has('gui_running')
 endif
 colorscheme peachpuff
 set background=light
-hi Comment ctermfg=DarkGreen cterm=bold guifg=DarkGreen gui=bold
+hi LineNr ctermfg=DarkGray
+hi Comment ctermfg=40 cterm=bold
+hi Search ctermbg=DarkGray
+"hi Comment ctermfg=Green cterm=bold guifg=DarkGreen gui=bold
 
 command E Telescope find_files
 nnoremap <C-O> <cmd>Telescope find_files<cr>

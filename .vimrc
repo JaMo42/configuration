@@ -71,7 +71,8 @@ endif
   "---
   hi Statement ctermfg=DarkYellow
   hi LineNr ctermfg=DarkGray
-  hi Comment ctermfg=DarkGreen cterm=bold
+  "hi Comment ctermfg=DarkGreen cterm=bold
+  hi Comment ctermfg=40 cterm=bold
   "hi! ColorColumn ctermbg=232 guibg=#080808
   hi Search ctermbg=DarkGray
   "---
