@@ -21,15 +21,27 @@ if !empty(glob("~/.vim/autoload/plug.vim"))
   call plug#end()
 endif
 
+" Functions
+
+fun! DefaultTheme()
+  hi Statement ctermfg=DarkYellow
+  hi LineNr ctermfg=DarkGray
+  hi Comment ctermfg=DarkGreen cterm=bold
+  hi Visual cterm=reverse
+  "hi Comment ctermfg=40 cterm=bold
+  "hi! ColorColumn ctermbg=232 guibg=#080808
+  hi Search ctermbg=DarkGray
+endfun
+
 " Behavior
   set nocompatible
   if !has('gui_running')
     set t_Co=256
   endif
-  set tabstop=2
-  set softtabstop=2
+  set tabstop=4
+  set softtabstop=4
   set expandtab
-  set shiftwidth=2
+  "set shiftwidth=4
   set ttyfast
   set mouse=a
   set autoindent
@@ -42,6 +54,7 @@ endif
   set splitbelow
   set splitright
   set showcmd
+  set scrolloff=5
   "set autochdir
   filetype off
   " Open file at position left off
@@ -54,8 +67,9 @@ endif
 " Appearance
   set nowrap
   syntax on
-  set nu
+  "set nu
   " set relativenumber
+  set nonumber
   set laststatus=2
   set listchars=tab:>\ ,nbsp:_,trail:.,extends:<,precedes:>
   set list
@@ -69,15 +83,12 @@ endif
   "colorscheme peachpuff
   "set background=light
   "---
-  hi Statement ctermfg=DarkYellow
-  hi LineNr ctermfg=DarkGray
-  "hi Comment ctermfg=DarkGreen cterm=bold
-  hi Comment ctermfg=40 cterm=bold
-  "hi! ColorColumn ctermbg=232 guibg=#080808
-  hi Search ctermbg=DarkGray
+  call DefaultTheme()
   "---
   "colors sunbather
   "set background=dark
+  "---
+  "colors jblow
 
 " Key bindings
   nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
@@ -88,12 +99,12 @@ endif
         \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Filetype overrides
-  autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2
-  autocmd FileType rust setlocal expandtab shiftwidth=2 softtabstop=2
+  "autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2
+  "autocmd FileType rust setlocal expandtab shiftwidth=2 softtabstop=2
+  autocmd FileType go setlocal listchars=tab:\ \ ,nbsp:_,trail:.,extends:<,precedes:>
 
 " Limelight
   let g:limelight_conceal_ctermfg = 240
   let g:limelight_bop = '^\s*{\=$\n\zs'
   let g:limelight_eop = '^\s*}\=$'
   command LL Limelight!!
-

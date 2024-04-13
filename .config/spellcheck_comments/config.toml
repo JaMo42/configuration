@@ -1,0 +1,27 @@
+[styles.ini]
+line = ["#", ";"]
+
+[extensions]
+ini = ["ini", "cfg"]
+
+[aspell-options]
+lang = "en_US"
+ignore-case = "true"
+run-together = "true"
+
+[general]
+highlight-commands = [
+    "source-highlight -f esc --style-file=esc.style -i %FILE%",
+    "pygmentize %FILE%",
+]
+italic-to-underline = true
+box-style = "heavysharp"
+# Ignore PascalCase, camelCalse, snake_case, and kebab-case words as
+# they're likely identifiers.
+filters = [
+    "^[[:upper:]]?[[:lower:]]+[[:upper:]].*$",
+    "^[[:alpha:]]*[_-][[:alpha:]].*$",
+]
+#layout = "aspell"
+backup = false
+dim-code = false

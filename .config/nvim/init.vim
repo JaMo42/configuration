@@ -68,7 +68,8 @@ set background=light
 hi LineNr ctermfg=DarkGray
 hi Comment ctermfg=40 cterm=bold
 hi Search ctermbg=DarkGray
-"hi Comment ctermfg=Green cterm=bold guifg=DarkGreen gui=bold
+hi Comment ctermfg=Green cterm=bold guifg=DarkGreen gui=bold
+"colors jblow
 
 command E Telescope find_files
 nnoremap <C-O> <cmd>Telescope find_files<cr>

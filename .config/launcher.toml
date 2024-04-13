@@ -1,0 +1,7 @@
+entry_font = "SF Pro Text 24"
+list_font = "SF Pro Text 20"
+list_empty_font = "SF Pro Display 48"
+scroll_speed = 22
+locale = "ko"
+scroll_bar_width = 0
+

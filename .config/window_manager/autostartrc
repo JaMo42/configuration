@@ -1,0 +1,11 @@
+# Set wallpaper
+feh --bg-fill ~/.config/wallpaper &
+# Run compositor
+picom &
+
+# Startup programs
+ibus-daemon -drx &
+nm-tray &
+launcher-server &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+

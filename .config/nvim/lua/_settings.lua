@@ -16,8 +16,8 @@ o.incsearch = true
 --o.nofoldenable = true
 
 -- interface
-wo.number = true
-wo.relativenumber = true
+wo.number = false
+--wo.relativenumber = true
 vim.api.nvim_command("syntax on")
 vim.api.nvim_command("colors peachpuff")
 vim.api.nvim_command("hi Comment ctermfg=DarkGreen")

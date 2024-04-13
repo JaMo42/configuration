@@ -25,16 +25,17 @@ alias clearl="clear && ls"
 alias ED="export DISPLAY=jakob-pc:10.0"
 alias nvim="nvim && printf '\e[ q'"
 alias less="less -R"
+alias f2cb="xclip -sel c <"
+# small value for top row because temperature widget fill fix the size to its height
+alias tm="sm -l '(rows 1% (cols c[9] t[8]) p[10])'"
 
 alias cxx="g++ -fuse-ld=mold -std=c++20 -Wall -Wextra"
 alias py="ipython"
 alias pystyle="pycodestyle --ignore=E111,E211,E114"
 alias c="cargo"
 alias xm="xmake"
-
-# Valgrind
-alias vg="valgrind"
-alias vgto="valgrind --track-origins=yes"
+alias vg="valgrind --leak-check=full --track-origins=yes"
+alias todo="rg '(TODO|FIXME|XXX)' && if compgen -G 'TODO.*' > /dev/null; then printf '%0.1s' '='{1..80}; echo; cat TODO.*; fi"
 
 # Tmux
 alias tls="tmux list-sessions"
@@ -59,6 +60,8 @@ alias ac="arduino-cli"
 
 # Other
 alias set-urgent="wmctrl -r :SELECT: -b add,demands_attention"
+
+alias nightbot-time="python -c 'from datetime import datetime; print(datetime.now().strftime(\"%b %d %Y %I:%M:%S %p CET\"))'"
 
 # Functions
 
@@ -91,12 +94,20 @@ ex ()
 
 bak() { cp -v "$1" "$1~"; }
 
-launch() { "$*" >/dev/null 2>&1 & disown; }
+launch() { $* &>/dev/null & disown; }
 
 kill_vscode_server() { ps aux | grep .vscode-server | awk '{print $2}' | xargs kill -9; }
 
 set-wallpaper() {
   cp "$1" ~/.config/wallpaper;
   feh --bg-fill ~/.config/wallpaper;
+}
+
+trim-newlines() {
+  for FILE in $*
+  do
+    echo $FILE
+    printf "%s\n" "$(< $FILE)" > $FILE
+  done
 }
 

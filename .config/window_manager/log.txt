@@ -1,0 +1,79 @@
+INFO | Display: :1
+INFO | Monitors:
+INFO |   eDP-1: 1920x1080+0+0, 158 dpi, Primary
+TRACE| Refreshing modifier mapping
+TRACE| draw: creating context
+TRACE| Loading configuration
+TRACE| Refreshing modifier mapping
+TRACE| Loading color scheme
+TRACE| Looking for icon theme
+TRACE|  - /usr/share/icons/Papirus
+TRACE|  -> found
+INFO | using PulseAudio backend
+TRACE| ================================================================
+TRACE| Init
+TRACE| ================================================================
+TRACE| Creating workspaces
+TRACE| Setting root properties
+TRACE| Grabbing input
+TRACE| Running autostart script
+TRACE| Caching startup wm classes
+TRACE| bar: creating bar
+TRACE| bar: bar window: 4194349
+TRACE| tray: Creating manager
+TRACE| tray: Manager window: 4194356
+TRACE| tray: Acquiring selection
+TRACE| tray: Finished creating tray manager
+TRACE| dock: creating dock
+TRACE| dock: dock window: 4194420
+TRACE| dock: show window: 4194421
+TRACE| dock: small show window: 4194422
+TRACE| desktop file data dirs:
+TRACE|   - /usr/local/share/applications
+TRACE|   - /usr/share/applications
+TRACE|   - /var/lib/snapd/desktop/applications
+TRACE| ================================================================
+TRACE| Run
+TRACE| ================================================================
+TRACE| Unhandeled client message: Atom("_NET_WM_STATE" ; 378) to 23068675
+INFO | Mapped new client: Client(
+     |          window id: 23068675
+     |              title: Terminal - 
+     |               name: xfce4-terminal
+     |              class: Xfce4-terminal
+     |     application_id: xfce4-terminal
+     | )
+TRACE| dock: new instance of 'xfce4-terminal'
+TRACE| Unhandeled client message: Atom("_NET_WM_STATE" ; 378) to 20971526
+TRACE| Unhandeled client message: Atom("_NET_WM_STATE" ; 378) to 20971526
+TRACE| tray: Docking 20971526
+TRACE| tray: Changing client attributes
+TRACE| tray: Reparenting client
+TRACE| tray: Mapping client
+TRACE| tray: Updating tray
+INFO | Mapped new client: Client(
+     |          window id: 8388613
+     | )
+TRACE| dock: new item without id: 8388613
+TRACE| Removed client: Client(8388613)
+INFO | Mapped new client: Client(
+     |          window id: 8388613
+     | )
+TRACE| dock: new item without id: 8388613
+TRACE| Removed client: Client(8388613)
+TRACE| Removed client: Client("Terminal - j@tp:~/src/gui2/test"; 23068675)
+TRACE| ================================================================
+TRACE| Cleanup
+TRACE| ================================================================
+TRACE| Closing clients
+TRACE| Closing meta windows
+TRACE| Sending quit signal
+TRACE| dock: destroying dock
+TRACE| bar: stopping update thread
+TRACE| bar: destroying bar
+TRACE| bar: destroying tray manager
+TRACE| notification manager: destroying notification manager
+TRACE| Removing D-Bus interfaces
+TRACE| Cleaning root properties
+TRACE| draw: destroying context
+INFO | Finished without crashing :^)
