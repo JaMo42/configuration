@@ -27,7 +27,9 @@ alias nvim="nvim && printf '\e[ q'"
 alias less="less -R"
 alias f2cb="xclip -sel c <"
 # small value for top row because temperature widget fill fix the size to its height
-alias tm="sm -l '(rows 1% (cols c[9] t[8]) p[10])'"
+#alias tm="sm -l '(rows 1% (cols c[9] t[8]) p[10])'"
+alias tm="sm -lp"
+alias link_target_to="ln -s"
 
 alias cxx="g++ -fuse-ld=mold -std=c++20 -Wall -Wextra"
 alias py="ipython"
@@ -36,6 +38,7 @@ alias c="cargo"
 alias xm="xmake"
 alias vg="valgrind --leak-check=full --track-origins=yes"
 alias todo="rg '(TODO|FIXME|XXX)' && if compgen -G 'TODO.*' > /dev/null; then printf '%0.1s' '='{1..80}; echo; cat TODO.*; fi"
+alias my-indent="indent -bap -nsob -br -ce -cdw -cli 0 -ss -npcs -ncs -saf -sai -saw -psl -brs -brf -nut -i 4 -lp -ip 1 -il 0 -l100 -bbo -hnl -par"
 
 # Tmux
 alias tls="tmux list-sessions"
@@ -110,4 +113,3 @@ trim-newlines() {
     printf "%s\n" "$(< $FILE)" > $FILE
   done
 }
-
